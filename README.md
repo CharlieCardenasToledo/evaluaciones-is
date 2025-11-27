@@ -1,10 +1,30 @@
 # Guía Paso a Paso: GA-1.6 Entrega Proyecto Fase 1 en GitHub
 
+## Índice
+
+1. [Introducción](#introducción)
+2. [Paso 1: Configuración Inicial del Repositorio](#paso-1-configuración-inicial-del-repositorio)
+3. [Paso 2: Configurar GitHub Issues y Labels](#paso-2-configurar-github-issues-y-labels)
+4. [Paso 3: Crear GitHub Projects](#paso-3-crear-github-projects)
+5. [Paso 4: Preparar Documentación](#paso-4-preparar-documentación)
+6. [Paso 5: Trabajo Colaborativo con Git](#paso-5-trabajo-colaborativo-con-git-continuo)
+7. [Paso 6: Mantener Coherencia](#paso-6-mantener-coherencia-durante-todo-el-sprint)
+8. [Paso 7: Preparación Final para Entrega](#paso-7-preparación-final-para-entrega)
+9. [Paso 8: Entrega](#paso-8-entrega)
+10. [Errores Comunes a Evitar](#errores-comunes-a-evitar)
+11. [Troubleshooting](#troubleshooting)
+12. [Comandos Git Rápidos](#comandos-git-rápidos)
+13. [Recursos Adicionales](#recursos-adicionales)
+
+---
+
 ## Introducción
 
 Esta guía te llevará paso a paso para completar la entrega de la Fase 1 del proyecto de Ingeniería de Software usando GitHub de manera profesional.
 
 **Proyecto:** Marketplaces Agrícola - Sistema de gestión para distribución de productos agrícolas
+
+**Equipo:** Dario Valarezo, Charlie Cárdenas Toledo, Lorena Conde, Milton Palacios
 
 **Tiempo estimado:** 3-4 horas de trabajo colaborativo
 
@@ -51,8 +71,9 @@ git commit -m "chore: setup initial project structure"
 git push origin main
 ```
 
-**Nota sobre convenciones de commits:**
-- `chore:` se utiliza para tareas de mantenimiento, configuración y cambios que no modifican el código de producción (ejemplos: configuración de herramientas, estructura de carpetas, dependencias, scripts de build)
+**Notas importantes:**
+- **`.gitkeep`**: Git no rastrea carpetas vacías. Este archivo placeholder permite versionar la estructura de carpetas sin contenido.
+- **`chore:`**: Prefijo para commits de mantenimiento, configuración y cambios que no modifican el código de producción (ejemplos: configuración de herramientas, estructura de carpetas, dependencias, scripts de build)
 
 ### 1.4 Crear Ramas Principales
 
@@ -128,6 +149,22 @@ git checkout main
 - **Description:** Dashboard, reportes y gestión de operaciones
 
 ### 2.3 Crear Issues (Historias de Usuario)
+
+**Formato de Historias de Usuario:**
+```
+Como [tipo de usuario], quiero [acción], para [beneficio]
+```
+
+**Formato Gherkin para Criterios de Aceptación:**
+
+Gherkin es un lenguaje estructurado para definir comportamientos esperados usando tres palabras clave:
+- **Dado que** (Given): Contexto inicial o precondición
+- **Cuando** (When): Acción que se ejecuta
+- **Entonces** (Then): Resultado esperado
+
+Este formato asegura que todos entiendan exactamente qué debe hacer el sistema.
+
+---
 
 1. Ve a **Issues** → "New issue"
 2. Usa el formato:
@@ -446,29 +483,7 @@ Una Historia de Usuario está completa cuando:
 
 ## Convenciones
 
-### Ramas
-- `main` - Rama principal (protegida)
-- `develop` - Rama de desarrollo
-- `feature/[nombre]` - Ramas para nuevas funcionalidades
-- `docs/[nombre]` - Ramas para documentación
-
-### Commits
-Formato: `tipo: descripción #issue`
-
-Tipos:
-- `feat:` - Nueva funcionalidad
-- `fix:` - Corrección de errores
-- `docs:` - Cambios en documentación
-- `refactor:` - Refactorización de código
-- `test:` - Agregar o modificar tests
-- `chore:` - Tareas de mantenimiento
-
-Ejemplo: `feat: add user login form #12`
-
-### Labels
-- **Tipo:** feature, user-story, bug, documentation
-- **Prioridad:** must-have, should-have, could-have, wont-have
-- **Estimación:** sp:1, sp:2, sp:3, sp:5, sp:8
+Ver [Paso 1](#paso-1-configuración-inicial-del-repositorio) para convenciones de ramas y commits, y [Paso 2](#paso-2-configurar-github-issues-y-labels) para labels.
 
 ## Instalación
 
@@ -540,7 +555,7 @@ git push origin main
 
 ### 5.1 Flujo de Trabajo para Cada Tarea
 
-**María trabajando en HU-001 (Registro de agricultor):**
+**Ejemplo: Dario trabajando en HU-001 (Registro de agricultor)**
 
 ```bash
 # 1. Actualizar repositorio
@@ -581,7 +596,7 @@ git push -u origin feature/registro-agricultor
 #   [x] Validar cédula ecuatoriana
 ```
 
-**Carlos trabajando en HU-002 (Catálogo de productos):**
+**Ejemplo: Charlie trabajando en HU-002 (Catálogo de productos)**
 
 ```bash
 git checkout develop
@@ -606,12 +621,12 @@ git push -u origin feature/catalogo-productos
 ```bash
 # Opción 1: Merge directo (simple)
 git checkout develop
-git merge feature/user-login
+git merge feature/registro-agricultor
 git push origin develop
 
 # Opción 2: Pull Request (recomendado pero opcional)
-# - Crear PR en GitHub desde feature/user-login hacia develop
-# - Pedir code review a un compañero
+# - Crear PR en GitHub desde feature/registro-agricultor hacia develop
+# - Pedir code review a un compañero (otro miembro del equipo)
 # - Hacer merge cuando esté aprobado
 ```
 
@@ -751,6 +766,115 @@ SI HACER:
 - Issues completos con criterios Gherkin
 - Mantener Projects actualizados
 - Coherencia entre SRS, Issues y código
+
+---
+
+## Troubleshooting
+
+### Problemas Comunes con Git
+
+**Error: "Permission denied (publickey)"**
+```bash
+# Verificar que tienes configurada tu clave SSH
+ssh -T git@github.com
+
+# Si no tienes clave SSH, generarla:
+ssh-keygen -t ed25519 -C "tu-email@ejemplo.com"
+# Luego agregar la clave a GitHub: Settings → SSH and GPG keys
+```
+
+**Error: "Your branch is behind 'origin/main'"**
+```bash
+# Sincronizar tu rama local con la remota
+git pull origin main
+```
+
+**Error: "Merge conflict"**
+```bash
+# 1. Identificar archivos en conflicto
+git status
+
+# 2. Abrir archivos y resolver conflictos manualmente
+# Buscar marcadores: <<<<<<< HEAD, =======, >>>>>>>
+
+# 3. Después de resolver
+git add archivo-resuelto.js
+git commit -m "fix: resolve merge conflict"
+```
+
+**Error: "fatal: not a git repository"**
+```bash
+# Estás en el directorio equivocado. Navega al repositorio:
+cd ruta/al/repositorio
+# O inicializa uno nuevo:
+git init
+```
+
+**Deshacer el último commit (sin perder cambios)**
+```bash
+git reset --soft HEAD~1
+```
+
+**Ver historial de commits**
+```bash
+git log --oneline --graph --all
+```
+
+### Problemas con GitHub
+
+**No veo mi proyecto en GitHub Projects**
+- Verifica que agregaste los Issues al proyecto usando "+ Add item"
+- Refresca la página (F5)
+
+**Los colaboradores no pueden acceder al repositorio**
+- Verifica en Settings → Collaborators que estén agregados
+- Si es privado, asegúrate de que aceptaron la invitación
+
+**Las imágenes no se ven en el README**
+- Usa rutas relativas: `![imagen](./docs/imagen.png)`
+- O URLs absolutas de GitHub: `![imagen](https://github.com/usuario/repo/blob/main/imagen.png)`
+
+---
+
+## Comandos Git Rápidos
+
+```bash
+# Ver estado actual
+git status
+
+# Ver cambios no guardados
+git diff
+
+# Agregar todos los cambios
+git add .
+
+# Commit rápido
+git commit -m "mensaje"
+
+# Ver ramas
+git branch -a
+
+# Cambiar de rama
+git checkout nombre-rama
+
+# Crear y cambiar a nueva rama
+git checkout -b nueva-rama
+
+# Actualizar desde remoto
+git pull origin main
+
+# Subir cambios
+git push origin nombre-rama
+
+# Ver historial
+git log --oneline
+
+# Descartar cambios locales de un archivo
+git checkout -- archivo.js
+
+# Ver quién modificó cada línea de un archivo
+git blame archivo.js
+```
 
 ---
 
