@@ -96,23 +96,23 @@ git checkout main
 2. Click "New label" y crea los siguientes:
 
 **Tipo:**
-- `feature` - Color: #0052CC
-- `user-story` - Color: #5319E7
-- `bug` - Color: #D73A4A
-- `documentation` - Color: #0075CA
+- `feature` - Color: #0052CC - Descripción: "Nueva funcionalidad o mejora"
+- `user-story` - Color: #5319E7 - Descripción: "Historia de usuario del proyecto"
+- `bug` - Color: #D73A4A - Descripción: "Error o problema a corregir"
+- `documentation` - Color: #0075CA - Descripción: "Documentación del proyecto"
 
 **Prioridad:**
-- `priority:must-have` - Color: #B60205
-- `priority:should-have` - Color: #D93F0B
-- `priority:could-have` - Color: #FBCA04
-- `priority:wont-have` - Color: #FFFFFF
+- `priority:must-have` - Color: #B60205 - Descripción: "Requisito crítico e indispensable"
+- `priority:should-have` - Color: #D93F0B - Descripción: "Importante pero no crítico"
+- `priority:could-have` - Color: #FBCA04 - Descripción: "Deseable si hay tiempo"
+- `priority:wont-have` - Color: #FFFFFF - Descripción: "No se implementará en este sprint"
 
-**Story Points:**
-- `sp:1` - Color: #C2E0C6
-- `sp:2` - Color: #BFDADC
-- `sp:3` - Color: #BFD4F2
-- `sp:5` - Color: #C5DEF5
-- `sp:8` - Color: #D4C5F9
+**Story Points (Complejidad):**
+- `sp:1` - Color: #C2E0C6 - Descripción: "Muy simple - 1-2 horas"
+- `sp:2` - Color: #BFDADC - Descripción: "Simple - 2-4 horas"
+- `sp:3` - Color: #BFD4F2 - Descripción: "Moderado - 4-8 horas"
+- `sp:5` - Color: #C5DEF5 - Descripción: "Complejo - 1-2 días"
+- `sp:8` - Color: #D4C5F9 - Descripción: "Muy complejo - 2-3 días"
 
 **Nota sobre Story Points (SP):**
 - Los Story Points son una unidad de medida relativa para estimar el esfuerzo, complejidad y tiempo necesario para completar una Historia de Usuario
@@ -807,7 +807,7 @@ SI HACER:
 ssh -T git@github.com
 
 # Si no tienes clave SSH, generarla:
-ssh-keygen -t ed25519 -C "tu-email@ejemplo.com"
+ssh-keygen -t ed25519 -C "tu-email@gmail.com"
 # Luego agregar la clave a GitHub: Settings → SSH and GPG keys
 ```
 
