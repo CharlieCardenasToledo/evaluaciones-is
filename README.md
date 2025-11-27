@@ -43,7 +43,7 @@ Esta guía te llevará paso a paso para completar la entrega de la Fase 1 del pr
    - **Description:** Sistema de gestión para distribución de productos agrícolas
    - **Visibility:** Public
    - **Initialize:** Add a README file
-   - **Add .gitignore:** Node (selecciona según tu tecnología)
+   - **Add .gitignore:** Dart (para proyectos Flutter)
 
 ### 1.2 Agregar Colaboradores
 
@@ -348,36 +348,39 @@ Como distribuidor, quiero agregar productos al carrito y realizar un pedido, par
 ### Análisis y Diseño
 - [ ] Revisar RF-001 a RF-005 del SRS sobre registro de usuarios
 - [ ] Diseñar mockup de formulario de registro en Figma
-- [ ] Definir modelo de datos: tabla Agricultores (id, nombre, cedula, email, telefono, ubicacion_finca, productos[], certificaciones[], estado)
+- [ ] Definir modelo de datos: clase Agricultor (id, nombre, cedula, email, telefono, ubicacionFinca, productos[], certificaciones[], estado)
 - [ ] Diseñar flujo de verificación de correo
 
-### Implementación Backend
-- [ ] Crear modelo Agricultor en Mongoose/Sequelize
-- [ ] Implementar endpoint POST /api/auth/register-agricultor
+### Implementación Backend/API
+- [ ] Crear endpoint POST /api/auth/register-agricultor (Firebase Functions o Node.js)
+- [ ] Configurar Firebase Auth o sistema de autenticación
 - [ ] Validar formato de cédula ecuatoriana (10 dígitos)
 - [ ] Integrar servicio de geocodificación para ubicación de finca
 - [ ] Configurar envío de email de verificación con token
 - [ ] Implementar endpoint GET /api/auth/verify-email/:token
 
-### Implementación Frontend
-- [ ] Crear componente RegistroAgricultorForm.jsx
-- [ ] Implementar validación de formulario con Formik/React Hook Form
-- [ ] Agregar selector de productos (checkboxes: Tomate, Brócoli, Papa, etc.)
-- [ ] Implementar upload de certificaciones (PDF, max 2MB)
-- [ ] Integrar mapa para seleccionar ubicación de finca
-- [ ] Mostrar mensaje de éxito y redirección a verificación de email
+### Implementación Frontend (Flutter)
+- [ ] Crear modelo Agricultor en lib/models/agricultor.dart
+- [ ] Crear screen RegistroAgricultorScreen en lib/screens/
+- [ ] Implementar formulario con validaciones (TextFormField)
+- [ ] Agregar selector de productos (Checkboxes o MultiSelect)
+- [ ] Implementar upload de certificaciones usando image_picker (PDF, max 2MB)
+- [ ] Integrar Google Maps Flutter para seleccionar ubicación de finca
+- [ ] Mostrar SnackBar de éxito y navegación a pantalla de verificación
+- [ ] Crear servicio AuthService en lib/services/ para llamadas API
 
 ### Documentación
 - [ ] Actualizar README con proceso de registro
-- [ ] Documentar endpoint en Swagger: POST /api/auth/register-agricultor
+- [ ] Documentar endpoint en Swagger o Postman: POST /api/auth/register-agricultor
 - [ ] Agregar ejemplos de request/response en documentación API
+- [ ] Documentar widgets y screens creados
 
 ### Testing
-- [ ] Test unitario: validación de cédula ecuatoriana
-- [ ] Test unitario: creación de agricultor en BD
+- [ ] Test unitario: validación de cédula ecuatoriana (test/models/)
+- [ ] Test unitario: modelo Agricultor (test/models/)
+- [ ] Test widget: RegistroAgricultorScreen (test/screens/)
 - [ ] Test integración: flujo completo de registro
-- [ ] Test E2E: registro desde interfaz y verificación de email
-- [ ] Pruebas manuales con datos reales
+- [ ] Pruebas manuales en emulador Android/iOS
 
 ### Gestión
 - [ ] Daily stand-up: reportar avance diario
@@ -393,35 +396,40 @@ Como distribuidor, quiero agregar productos al carrito y realizar un pedido, par
 ### Análisis y Diseño
 - [ ] Revisar RF-008 a RF-012 del SRS sobre catálogo
 - [ ] Diseñar mockup de vista de catálogo (grid/lista)
-- [ ] Definir modelo Producto (id, nombre, categoria, precio, cantidad_disponible, unidad, agricultor_id, foto_url, fecha_cosecha)
+- [ ] Definir modelo Producto (id, nombre, categoria, precio, cantidadDisponible, unidad, agricultorId, fotoUrl, fechaCosecha)
 - [ ] Diseñar sistema de filtros y búsqueda
 
-### Implementación Backend
-- [ ] Crear modelo Producto
+### Implementación Backend/API
+- [ ] Crear colección/modelo Producto en Firebase/MongoDB
 - [ ] Implementar endpoint GET /api/productos (con paginación, filtros, ordenamiento)
 - [ ] Implementar endpoint GET /api/productos/:id (detalle)
 - [ ] Agregar filtros: categoria, precio_min, precio_max, distancia
 - [ ] Implementar búsqueda por nombre
-- [ ] Configurar upload de imágenes a S3/Cloudinary
+- [ ] Configurar upload de imágenes a Firebase Storage/Cloudinary
 
-### Implementación Frontend
-- [ ] Crear componente CatalogoProductos.jsx
-- [ ] Crear componente ProductoCard.jsx
-- [ ] Implementar grid responsivo (4 cols desktop, 2 cols tablet, 1 col mobile)
-- [ ] Agregar barra de filtros (categoría, rango de precio)
-- [ ] Implementar búsqueda en tiempo real
-- [ ] Crear componente DetalleProducto.jsx (modal o página)
-- [ ] Agregar indicador de distancia desde ubicación del distribuidor
+### Implementación Frontend (Flutter)
+- [ ] Crear modelo Producto en lib/models/producto.dart
+- [ ] Crear screen CatalogoProductosScreen en lib/screens/
+- [ ] Crear widget ProductoCard para mostrar cada producto
+- [ ] Implementar GridView.builder para layout responsivo
+- [ ] Agregar barra de filtros (DropdownButton para categoría, RangeSlider para precio)
+- [ ] Implementar TextField con búsqueda en tiempo real
+- [ ] Crear screen DetalleProductoScreen para vista detallada
+- [ ] Agregar indicador de distancia usando geolocator
+- [ ] Crear ProductoService en lib/services/ para llamadas API
+- [ ] Implementar estado de carga (CircularProgressIndicator)
 
 ### Documentación
 - [ ] Documentar endpoints GET /api/productos y GET /api/productos/:id
 - [ ] Agregar ejemplos de filtros en documentación
+- [ ] Documentar widgets y screens creados
 
 ### Testing
-- [ ] Test unitario: filtrado por categoría
-- [ ] Test unitario: búsqueda por nombre
-- [ ] Test integración: paginación del catálogo
-- [ ] Test E2E: flujo completo de visualización y filtrado
+- [ ] Test unitario: modelo Producto (test/models/)
+- [ ] Test unitario: filtrado por categoría (test/services/)
+- [ ] Test widget: ProductoCard (test/widgets/)
+- [ ] Test widget: CatalogoProductosScreen (test/screens/)
+- [ ] Pruebas manuales en emulador Android/iOS
 
 ### Gestión
 - [ ] Daily stand-up diario
@@ -492,36 +500,52 @@ Ver [Paso 1](#paso-1-configuración-inicial-del-repositorio) para convenciones d
 git clone [URL]
 cd [nombre-repo]
 
-# Instalar dependencias
-npm install  # o el comando según tu tecnología
+# Instalar dependencias de Flutter
+flutter pub get
 
-# Configurar variables de entorno
-cp .env.example .env
+# Verificar instalación de Flutter
+flutter doctor
 
-# Ejecutar
-npm start
+# Ejecutar en modo desarrollo
+flutter run
+
+# Ejecutar tests
+flutter test
 ```
 
 ## Estructura del Proyecto
 
 ```
-├── docs/           # Documentación del proyecto
-│   └── SRS.pdf     # Especificación de Requerimientos
-├── src/            # Código fuente
-├── tests/          # Tests unitarios e integración
-├── .gitignore      # Archivos ignorados por git
-└── README.md       # Este archivo
+├── docs/                 # Documentación del proyecto
+│   └── SRS.pdf          # Especificación de Requerimientos
+├── lib/                 # Código fuente Flutter
+│   ├── models/          # Modelos de datos
+│   ├── screens/         # Pantallas de la aplicación
+│   ├── widgets/         # Widgets reutilizables
+│   ├── services/        # Servicios (API, autenticación)
+│   └── main.dart        # Punto de entrada
+├── test/                # Tests unitarios e integración
+├── assets/              # Imágenes, fuentes, etc.
+├── .gitignore           # Archivos ignorados por git
+├── pubspec.yaml         # Dependencias del proyecto
+└── README.md            # Este archivo
 ```
 
 ## Tecnologías
 
-- **Frontend:** React 18, Tailwind CSS, React Router, Axios
-- **Backend:** Node.js, Express.js, MongoDB, Mongoose
-- **Autenticación:** JWT, bcrypt
-- **Storage:** Cloudinary (imágenes de productos)
-- **Maps:** Google Maps API (geocodificación de fincas)
-- **Testing:** Jest, React Testing Library, Supertest
-- **DevOps:** Docker, GitHub Actions (CI/CD)
+- **Framework:** Flutter 3.x (Dart)
+- **State Management:** Provider / Riverpod / Bloc (elegir según el equipo)
+- **Backend/API:** Node.js + Express / Firebase (para autenticación y base de datos)
+- **Base de datos:** Firebase Firestore / MongoDB
+- **Autenticación:** Firebase Auth / JWT
+- **Storage:** Firebase Storage / Cloudinary (imágenes de productos)
+- **Maps:** Google Maps Flutter Plugin (geocodificación de fincas)
+- **Testing:** flutter_test, mockito
+- **Otros paquetes útiles:**
+  - http / dio (peticiones HTTP)
+  - shared_preferences (almacenamiento local)
+  - image_picker (selección de imágenes)
+  - geolocator (geolocalización)
 
 ## Funcionalidades Principales
 
@@ -569,20 +593,20 @@ git checkout -b feature/registro-agricultor
 # ... crear modelo Agricultor, endpoints, validaciones ...
 
 # 4. Hacer commits frecuentes y descriptivos
-git add backend/models/Agricultor.js
+git add lib/models/agricultor.dart
 git commit -m "feat: add Agricultor model with validations #1"
 
-git add backend/routes/auth.js backend/controllers/authController.js
-git commit -m "feat: implement register-agricultor endpoint #1"
+git add lib/screens/registro_agricultor_screen.dart
+git commit -m "feat: implement registration form screen #1"
 
-git add backend/utils/validacionCedula.js
+git add lib/services/auth_service.dart
+git commit -m "feat: add authentication service with API calls #1"
+
+git add lib/utils/validacion_cedula.dart
 git commit -m "feat: add ecuadorian ID validation utility #1"
 
-git add backend/services/emailService.js
-git commit -m "feat: implement email verification service #1"
-
-git add backend/tests/auth.test.js
-git commit -m "test: add unit tests for agricultor registration #1"
+git add test/models/agricultor_test.dart
+git commit -m "test: add unit tests for Agricultor model #1"
 
 # 5. Subir cambios
 git push -u origin feature/registro-agricultor
@@ -591,9 +615,10 @@ git push -u origin feature/registro-agricultor
 # - Ir al Project "Sprint 1"
 # - Arrastrar HU-001 de "To Do" a "In Progress"
 # - Editar el issue y marcar tareas completadas:
-#   [x] Crear modelo Agricultor
-#   [x] Implementar endpoint POST /api/auth/register-agricultor
-#   [x] Validar cédula ecuatoriana
+#   [x] Crear modelo Agricultor en lib/models/
+#   [x] Crear screen RegistroAgricultorScreen
+#   [x] Implementar validación de cédula ecuatoriana
+#   [x] Crear servicio AuthService
 ```
 
 **Ejemplo: Charlie trabajando en HU-002 (Catálogo de productos)**
@@ -603,15 +628,18 @@ git checkout develop
 git pull origin develop
 git checkout -b feature/catalogo-productos
 
-# Trabajo en frontend y backend
-git add frontend/src/components/CatalogoProductos.jsx
-git commit -m "feat: create product catalog component with filters #2"
+# Trabajo en Flutter app
+git add lib/models/producto.dart
+git commit -m "feat: add Producto model #2"
 
-git add backend/routes/productos.js
-git commit -m "feat: add productos endpoints with pagination #2"
+git add lib/screens/catalogo_productos_screen.dart
+git commit -m "feat: create product catalog screen with filters #2"
 
-git add frontend/src/components/ProductoCard.jsx
-git commit -m "feat: create product card component #2"
+git add lib/widgets/producto_card.dart
+git commit -m "feat: create product card widget #2"
+
+git add lib/services/producto_service.dart
+git commit -m "feat: add producto service with API calls #2"
 
 git push -u origin feature/catalogo-productos
 ```
@@ -882,8 +910,10 @@ git blame archivo.js
 
 - [Documentación GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects)
 - [Documentación GitHub Issues](https://docs.github.com/en/issues)
-- [Guía de Markdown](https://guides.github.com/features/mastering-markdown/)
+- [Markdown Guide - Getting Started](https://www.markdownguide.org/getting-started/) - Aprende a escribir en Markdown
 - [Conventional Commits](https://www.conventionalcommits.org/)
+- [Documentación Flutter](https://docs.flutter.dev/)
+- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 
 ---
 
