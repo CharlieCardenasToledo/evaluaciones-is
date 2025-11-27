@@ -93,6 +93,16 @@ git checkout main
 - `sp:5` - Color: #C5DEF5
 - `sp:8` - Color: #D4C5F9
 
+**Nota sobre Story Points (SP):**
+- Los Story Points son una unidad de medida relativa para estimar el esfuerzo, complejidad y tiempo necesario para completar una Historia de Usuario
+- Se usa la secuencia de Fibonacci (1, 2, 3, 5, 8) donde números mayores indican mayor complejidad
+- Ejemplos:
+  - SP:1 - Tarea muy simple (ej: cambiar un texto, agregar un campo simple)
+  - SP:2 - Tarea simple (ej: crear un componente básico de UI)
+  - SP:3 - Tarea moderada (ej: crear un formulario con validaciones)
+  - SP:5 - Tarea compleja (ej: implementar autenticación completa)
+  - SP:8 - Tarea muy compleja (ej: integración con API externa y manejo de errores)
+
 ### 2.2 Crear Milestones (Épicas)
 
 1. Ve a **Issues** → **Milestones** → "New milestone"
