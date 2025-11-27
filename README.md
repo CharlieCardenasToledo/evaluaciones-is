@@ -8,9 +8,11 @@ Esta guía te llevará paso a paso para completar la entrega de la Fase 1 del pr
 
 **Tiempo estimado:** 3-4 horas de trabajo colaborativo
 
+**IMPORTANTE:** Para el día de hoy se debe realizar al menos un commit con 3 Historias de Usuario creadas en GitHub Issues.
+
 ---
 
-## Paso 1: Configuración Inicial del Repositorio (30 minutos)
+## Paso 1: Configuración Inicial del Repositorio
 
 ### 1.1 Crear el Repositorio
 
@@ -19,7 +21,7 @@ Esta guía te llevará paso a paso para completar la entrega de la Fase 1 del pr
 3. Configura:
    - **Repository name:** `martpalace-agricola`
    - **Description:** Sistema de gestión para distribución de productos agrícolas
-   - **Visibility:** Public (o Private si agregas al docente)
+   - **Visibility:** Public
    - **Initialize:** Add a README file
    - **Add .gitignore:** Node (selecciona según tu tecnología)
 
@@ -49,6 +51,9 @@ git commit -m "chore: setup initial project structure"
 git push origin main
 ```
 
+**Nota sobre convenciones de commits:**
+- `chore:` se utiliza para tareas de mantenimiento, configuración y cambios que no modifican el código de producción (ejemplos: configuración de herramientas, estructura de carpetas, dependencias, scripts de build)
+
 ### 1.4 Crear Ramas Principales
 
 ```bash
@@ -62,7 +67,7 @@ git checkout main
 
 ---
 
-## Paso 2: Configurar GitHub Issues y Labels (45 minutos)
+## Paso 2: Configurar GitHub Issues y Labels
 
 ### 2.1 Crear Labels Personalizados
 
@@ -223,7 +228,7 @@ Como distribuidor, quiero agregar productos al carrito y realizar un pedido, par
 
 ---
 
-## Paso 3: Crear GitHub Projects (45 minutos)
+## Paso 3: Crear GitHub Projects
 
 ### 3.1 Crear Project "Product Backlog"
 
@@ -378,7 +383,7 @@ Como distribuidor, quiero agregar productos al carrito y realizar un pedido, par
 
 ---
 
-## Paso 4: Preparar Documentación (45 minutos)
+## Paso 4: Preparar Documentación
 
 ### 4.1 Actualizar README.md
 
@@ -640,7 +645,7 @@ Actualizar en GitHub:
 
 ---
 
-## Paso 7: Preparación Final para Entrega (1 hora antes)
+## Paso 7: Preparación Final para Entrega
 
 ### 7.1 Verificación de Completitud
 
