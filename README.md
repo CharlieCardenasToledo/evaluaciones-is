@@ -4,7 +4,7 @@
 
 Esta guía te llevará paso a paso para completar la entrega de la Fase 1 del proyecto de Ingeniería de Software usando GitHub de manera profesional.
 
-**Proyecto de ejemplo:** MartPalace Agrícola - Sistema de gestión para distribución de productos agrícolas
+**Proyecto:** Marketplaces Agrícola - Sistema de gestión para distribución de productos agrícolas
 
 **Tiempo estimado:** 3-4 horas de trabajo colaborativo
 
@@ -19,7 +19,7 @@ Esta guía te llevará paso a paso para completar la entrega de la Fase 1 del pr
 1. Ve a [GitHub](https://github.com)
 2. Click en el botón verde "New" o "+" → "New repository"
 3. Configura:
-   - **Repository name:** `martpalace-agricola`
+   - **Repository name:** `marketplaces-agricola`
    - **Description:** Sistema de gestión para distribución de productos agrícolas
    - **Visibility:** Public
    - **Initialize:** Add a README file
@@ -98,7 +98,7 @@ git checkout main
 1. Ve a **Issues** → **Milestones** → "New milestone"
 2. Crea Milestones para tus Épicas principales
 
-**Ejemplo para MartPalace Agrícola:**
+**Ejemplo para Marketplaces Agrícola:**
 
 **Milestone 1:**
 - **Título:** Gestión de Usuarios y Autenticación
@@ -263,7 +263,7 @@ Como distribuidor, quiero agregar productos al carrito y realizar un pedido, par
    - Click en los "..." del proyecto → "Settings"
    - En README/Description documentar:
      ```markdown
-     ## Sprint 1 - MartPalace Agrícola (Semana 1-2)
+     ## Sprint 1 - Marketplaces Agrícola (Semana 1-2)
 
      ### Objetivo
      Implementar funcionalidades básicas de registro, autenticación y visualización de catálogo de productos agrícolas
@@ -275,7 +275,7 @@ Como distribuidor, quiero agregar productos al carrito y realizar un pedido, par
      - HU-006: Publicar nueva cosecha disponible (SP: 3)
 
      ### Capacidad del Equipo
-     - 4 integrantes (María, Carlos, Ana, Luis)
+     - 4 integrantes (Dario Valarezo, Charlie Cárdenas Toledo, Lorena Conde, Milton Palacios)
      - Disponibilidad: 12 horas por persona
      - Velocidad estimada: 3.5 SP por persona
      - Total Sprint: 14 SP
@@ -390,21 +390,21 @@ Como distribuidor, quiero agregar productos al carrito y realizar un pedido, par
 Edita el archivo README.md en la raíz:
 
 ```markdown
-# MartPalace Agrícola
+# Marketplaces Agrícola
 
 Sistema de gestión y distribución de productos agrícolas que conecta agricultores locales directamente con distribuidores mayoristas, eliminando intermediarios y garantizando precios justos y productos frescos.
 
 ## Integrantes
 
-- **María González** - Product Owner - @mariagonzalez
-- **Carlos Mendoza** - Scrum Master - @carlosmendoza
-- **Ana Rodríguez** - Full Stack Developer - @anarodriguez
-- **Luis Morales** - Full Stack Developer - @luismorales
+- **Dario Valarezo** - Full Stack Developer - @dariovalarezo
+- **Charlie Cárdenas Toledo** - Full Stack Developer - @CharlieCardenasToledo
+- **Lorena Conde** - Full Stack Developer - @lorenaconde
+- **Milton Palacios** - Full Stack Developer - @miltonpalacios
 
 ## Enlaces a GitHub Projects
 
-- [Product Backlog](https://github.com/tuusuario/martpalace-agricola/projects/1)
-- [Sprint 1](https://github.com/tuusuario/martpalace-agricola/projects/2)
+- [Product Backlog](https://github.com/CharlieCardenasToledo/evaluaciones-is/projects/1)
+- [Sprint 1](https://github.com/CharlieCardenasToledo/evaluaciones-is/projects/2)
 
 ## Definition of Ready (DoR)
 
